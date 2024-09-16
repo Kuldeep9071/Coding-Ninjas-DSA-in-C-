@@ -1,0 +1,54 @@
+/*Problem statement
+Given a string S, remove consecutive duplicates from it recursively.
+
+Detailed explanation ( Input/output format, Notes, Images)
+
+Input Format :
+String S
+
+Output Format :
+Output string
+
+Constraints :
+1 <= |S| <= 10^3
+
+where |S| represents the length of string
+
+Sample Input 1 :
+aabccba
+
+Sample Output 1 :
+abcba
+
+Sample Input 2 :
+xxxyyyzwwzzz
+
+Sample Output 2 :
+xyzwz
+
+
+*/
+
+
+
+
+
+
+void removeConsecutiveDuplicates(char *input) {
+	
+	if(input[0]=='\0'){
+		return;
+	}
+	if(input[0]!=input[1]){
+		return removeConsecutiveDuplicates(input+1);
+	}
+	else{
+		int i=1;
+		for(;input[i]!='\0';i++){
+			input[i]=input[i+1];
+		}
+		input[i]='\0';
+		return removeConsecutiveDuplicates(input);
+	}
+
+}
